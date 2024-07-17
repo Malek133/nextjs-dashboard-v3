@@ -8,9 +8,22 @@ import { fetchRevenue } from '@/app/lib/data';
 // https://www.tremor.so/
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
+import React from 'react';
 
-export default async function RevenueChart() {
-  const revenue = await fetchRevenue();
+
+type Revenue = {
+  month: string;
+  revenue: number;
+};
+
+interface RevenueChartProps {
+  revenue: Revenue[];
+}
+
+
+//  export default async function RevenueChart() {
+    const RevenueChart: React.FC<RevenueChartProps> = ({ revenue }) => {
+  // const revenue = await fetchRevenue();
   const chartHeight = 350;
   // NOTE: comment in this code when you get to this point in the course
 
@@ -60,3 +73,5 @@ export default async function RevenueChart() {
     </div>
   );
 }
+
+export default RevenueChart
